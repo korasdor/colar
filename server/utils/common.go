@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	ROOT_PATH string = "github.com/korasdor/colar/server/"
+	ROOT_PATH string = "src/github.com/korasdor/colar/server/"
 	GEO_LITE_FILE_PATH  string = ROOT_PATH + "static/data/GeoLite2-Country.mmdb"
 	TEMPLATE_LOCAL_PATH string = ROOT_PATH + "templates/books.json"
 	TEMPLATE_REMOTE_URL string = "http://colarit.com/colar/templates/books.json"
