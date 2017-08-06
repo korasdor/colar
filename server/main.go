@@ -20,7 +20,7 @@ func main() {
 	services.InitDb()
 	defer services.CloseDb()
 
-	bind := "127.0.0.1:8080"
+	bind := ":8080"
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", handler.IndexHandler)
