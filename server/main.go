@@ -5,7 +5,6 @@ import (
 
 	"fmt"
 	"net/http"
-	"src/handler"
 )
 
 func main() {
