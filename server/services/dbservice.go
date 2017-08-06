@@ -31,7 +31,7 @@ func InitDb() {
 }
 
 func CreateSerialsTable(tableName string) bool {
-    result := true;
+    result := true
 
     stmt, err := db.Prepare("CREATE TABLE " + tableName + "(" +
             "serial_id INT NOT NULL AUTO_INCREMENT," +
@@ -63,7 +63,7 @@ func FillSerialTable(tableName string, serials []string, dealerId string) bool {
     result := true
 
     for i := 0; i < len(serials); i++ {
-        mHash = sha1.New();
+        mHash = sha1.New()
         mHash.Write([]byte(serials[i]))
 
         serialHash := fmt.Sprintf("%x", mHash.Sum(nil))
@@ -96,7 +96,7 @@ func SerialCheck(tableName string, key string) (bool, int) {
     result := false
     serialActivated := -1
 
-    mHash = sha1.New();
+    mHash = sha1.New()
     mHash.Write([]byte(key))
     serialHash := fmt.Sprintf("%x", mHash.Sum(nil))
 
@@ -120,7 +120,7 @@ func SerialCheck(tableName string, key string) (bool, int) {
         } else {
             if serialActivated < maxActivations {
                 result = true
-                serialActivated++;
+                serialActivated++
             } else {
                 result = false
             }
@@ -143,7 +143,7 @@ func SerialUpdate(tableName string, tryCount int, key string) bool {
     defer stmt.Close()
 
     activatedTime := time.Now().Format(time.RFC3339)
-    mHash = sha1.New();
+    mHash = sha1.New()
     mHash.Write([]byte(key))
     serialHash := fmt.Sprintf("%x", mHash.Sum(nil))
 
@@ -168,7 +168,7 @@ func ResetSerial(tableName string, key string) (bool, int64) {
 
     defer stmt.Close()
 
-    mHash = sha1.New();
+    mHash = sha1.New()
     mHash.Write([]byte(key))
     serialHash := fmt.Sprintf("%x", mHash.Sum(nil))
 
@@ -192,7 +192,7 @@ func AboutSerial(tableName string, key string) (bool, int, int, string) {
         serialActivatedTime string
     )
 
-    mHash = sha1.New();
+    mHash = sha1.New()
     mHash.Write([]byte(key))
     serialHash := fmt.Sprintf("%x", mHash.Sum(nil))
 
@@ -212,7 +212,7 @@ func AboutSerial(tableName string, key string) (bool, int, int, string) {
             result = false
             utils.PrintOutput(err.Error())
         } else {
-            result = true;
+            result = true
         }
     }
 

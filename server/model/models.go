@@ -3,6 +3,7 @@ package model
 var (
     DbSuccess string
     SerialKeyLength int = 10
+
 )
 
 type Common struct {

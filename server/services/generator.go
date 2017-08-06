@@ -15,7 +15,7 @@ import (
 var (
 	TEMPLATE_CHARS  string = "ABCDEFGHIJKLMNPQRSTUVWXYZ"
 	TEMPLATE_DIGITS string = "987654321123456789"
-	SERIALS_PATH    string = utils.GetDataDir() + "serials/"
+	SERIALS_PATH    string = utils.ROOT_PATH + "serials/"
 )
 
 func CreateSerialKeys(serialsName string, serialCount int) bool {
@@ -94,7 +94,6 @@ func GetSerials(filename string) ([]string, error) {
 
 func GenerateSerial(size int) string {
 	result := string(TEMPLATE_CHARS[rand.Intn(len(TEMPLATE_CHARS))])
-	fmt.Println(result)
 	for i := 0; i < size-1; i++ {
 		pos := rand.Intn(len(TEMPLATE_DIGITS))
 		char := TEMPLATE_DIGITS[pos]
