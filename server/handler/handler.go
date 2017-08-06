@@ -27,7 +27,17 @@ func ServeStaticFiles(w http.ResponseWriter, r *http.Request) {
  * индексная страница
  */
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "%s", "index page in construction...");
+	fmt.Fprintf(w, "%s", "index page in construction...")
+}
+
+func TestHandler(w http.ResponseWriter, r *http.Request) {
+	files, _ := ioutil.ReadDir("./")
+	content := ""
+	for _, f := range files {
+		content += fmt.Sprintf("%s\n", f.Name())
+	}
+
+	fmt.Fprint(w, content)
 }
 
 /**

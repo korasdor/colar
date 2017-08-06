@@ -24,7 +24,8 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", handler.IndexHandler)
-		r.HandleFunc("/db_state", handler.DBStateHandler)
+	r.HandleFunc("/test", handler.TestHandler)
+	r.HandleFunc("/db_state", handler.DBStateHandler)
 	r.HandleFunc("/books", handler.BooksHandler)
 	r.HandleFunc("/update_books_template", handler.UpdateBooksHandler)
 	r.HandleFunc("/get_temp/{file_name}", handler.GetTempHandler)
