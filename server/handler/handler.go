@@ -10,6 +10,7 @@ import (
 	"github.com/korasdor/colar/server/model"
 	"github.com/korasdor/colar/server/utils"
 	"github.com/korasdor/colar/server/services"
+	"os"
 )
 
 var (
@@ -31,6 +32,9 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
+
+	os.Mkdir("serials", 0644)
+
 	files, _ := ioutil.ReadDir("../")
 	content := ""
 	for _, f := range files {
