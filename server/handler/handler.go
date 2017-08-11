@@ -33,7 +33,10 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
 
-	os.Mkdir("serials", 0644)
+	err:= os.Mkdir("serials", 0644)
+	if err != nil {
+		utils.PrintOutput(err.Error())
+	}
 
 	files, _ := ioutil.ReadDir("../")
 	content := ""
